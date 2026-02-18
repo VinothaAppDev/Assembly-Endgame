@@ -33,3 +33,13 @@ hgroup p{
         font-size: 1rem;
     }
 }
+
+.langBoxContainer{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50vw;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 2px;
+    margin: 10px;
+}

@@ -1,9 +1,20 @@
 import { useState } from 'react'
 import './App.css'
-
+import { languages } from './languages'
 
 
 export default function App(){
+    let langBoxes = languages.map((obj) => {
+        let styles = {
+            backgroundColor : obj.backgroundColor,
+            color : obj.color,
+            padding: "5px",
+            borderRadius: "5px"
+        }
+        return (
+            <div style={styles} key={obj.name}>{obj.name}</div>
+        )
+    })
     return (
         <main>
             <hgroup>
@@ -13,6 +24,9 @@ export default function App(){
             <section className="status-bar">
                 <h3>You Win</h3>
                 <p>Well done! 🎉</p>
+            </section>
+            <section className="langBoxContainer">
+                {langBoxes}
             </section>
         </main>
     )
