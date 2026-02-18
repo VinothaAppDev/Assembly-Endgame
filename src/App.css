@@ -38,8 +38,28 @@ hgroup p{
     display: flex;
     flex-wrap: wrap;
     max-width: 50vw;
-    /* align-items: center; */
     justify-content: center;
     gap: 2px;
     margin: 10px;
+}
+
+.wordBox{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    margin: 5vh;
+}
+
+span.letter{
+    color: #F9F4DA;
+    width: 4vw;
+    height: 4vw;
+    background-color: #323232;
+    border-bottom: 1px solid #F9F4DA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 1.5rem;
 }
