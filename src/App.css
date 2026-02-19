@@ -67,7 +67,8 @@ span.word-letter{
 .key-board{
     display: flex;
     justify-content: center;
-    max-width: 60vw;
+    max-width: 45vw;
+    /* min-width: 300px; */
     flex-wrap: wrap;
     gap: 8px;
 }
@@ -83,4 +84,24 @@ span.word-letter{
     font-size: 1rem;
     text-align: center;
     cursor: pointer;
+}
+
+.new-game-btn{
+    background-color: #11B5E5;
+    border: 1px solid #D7D7D7;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    padding: 2vh 5vw;
+    border-radius: 8px;
+    margin-top: 4vh;
+}
+
+@media screen and (max-width: 500px) {
+    .key-board{
+        min-width: 80vw;
+        /* max-width: 70vw; */
+    }
 }

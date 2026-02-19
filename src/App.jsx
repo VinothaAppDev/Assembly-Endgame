@@ -4,17 +4,6 @@ import { languages } from './languages'
 
 export default function App(){
 
-    /**
- * Goal: Build out the main parts of our app
- * 
- * Challenge: 
- * Display the keyboard ⌨️. Use <button>s for each letter
- * since it'll need to be clickable and tab-accessible.
- */
-
-
-
-
     const [ currentWord, setCurrentWord ] = useState("react");
 
     const letters = "abcdefghijklmnopqrstuvwxyz"
@@ -27,7 +16,7 @@ export default function App(){
 
     const keyboard = Array.from(letters).map(letter => {
         return (
-            <button className='alphabet'>{letter.toUpperCase()}</button>
+            <button className='alphabet' key={letter}>{letter.toUpperCase()}</button>
         )
     })
 
@@ -62,6 +51,7 @@ export default function App(){
             <section className="key-board">
                 {keyboard}
             </section>
+            <button className="new-game-btn">New Game</button>
         </main>
     )
 }
