@@ -21,7 +21,7 @@ import newWordPicker from './utils/newWordPicker';
 
 export default function App() {
 
-    const [currentWord, setCurrentWord] = useState(newWordPicker());
+    const [currentWord, setCurrentWord] = useState(()=>newWordPicker());
 
     const letters = "abcdefghijklmnopqrstuvwxyz"
 
