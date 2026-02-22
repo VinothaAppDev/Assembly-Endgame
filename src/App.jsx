@@ -32,15 +32,19 @@ export default function App() {
     // const isGameOver = (wrongGuessCount==8 || guessedLetters.length-wrongGuessCount===charset.size) ? true : false
 
     const isGameWon = Array.from(currentWord).every(letter => guessedLetters.includes(letter))
-    const isGameLost = wrongGuessCount == 8
+    const isGameLost = wrongGuessCount == (languages.length-1)
 
     const isGameOver = isGameLost || isGameWon
 
     const wordBox = Array.from(currentWord).map((letter, index) => {
         const isGuessed = guessedLetters.includes(letter)
 
+        const condition = isGameOver && (!isGuessed)
+
+        const classNames = clsx("word-letter",{lettersNotGuessed : condition})
+
         return (
-            <span className='word-letter' key={index}>{isGuessed ? letter.toUpperCase() : ""}</span>
+            <span className={classNames} key={index}>{isGuessed ? letter.toUpperCase() : (isGameOver ? letter.toUpperCase() : "")}</span>
         )
     })
 
