@@ -132,6 +132,12 @@ span.word-letter{
     margin-top: 4vh;
 }
 
+.disable{
+    pointer-events: none;
+    opacity: 0.5;
+    /* filter: grayscale(40%); */
+}
+
 @media screen and (max-width: 500px) {
     .key-board{
         min-width: 80vw;

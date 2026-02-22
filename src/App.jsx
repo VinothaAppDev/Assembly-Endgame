@@ -5,6 +5,19 @@ import clsx from 'clsx';
 import farewellMsgPicker from './utils';
 import cheerUpMsgPicker from './cheeUpmsgs'
 
+/**
+ * Backlog:
+ * 
+ * ✅ Farewell messages in status section
+ * - Disable the keyboard when the game is over
+ * - Fix a11y issues
+ * - Make the New Game button reset the game
+ * - Choose a random word from a list of words
+ * - Confetti drop when the user wins
+ * 
+ * Challenge: Disable the keyboard when the game is over
+ */
+
 export default function App() {
 
     const [currentWord, setCurrentWord] = useState("elephant");
@@ -153,7 +166,7 @@ export default function App() {
             <section className="wordBox">
                 {wordBox}
             </section>
-            <section className="key-board">
+            <section className={isGameOver ? "key-board disable" : "key-board"}>
                 {keyboard}
             </section>
             {isGameOver && <button className="new-game-btn" onClick={newGameCaller}>
