@@ -38,6 +38,14 @@ hgroup p{
     }
 }
 
+.rightGuess{
+    background-color: #4CAF50;
+}
+
+.wrongGuess{
+    background-color: #7A5EA7;
+}
+
 .won{
     background-color: #10A95B;
 }

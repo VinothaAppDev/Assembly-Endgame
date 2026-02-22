@@ -129,8 +129,10 @@ export default function App() {
     }
 
     const statusBarSectionClass = clsx("status-bar", {
-        won: (isGameWon || isRightGuess),
-        lost: (isGameLost || isWrongGuess)
+        rightGuess: isRightGuess,
+        wrongGuess : isWrongGuess,
+        won: isGameWon,
+        lost: isGameLost
     })
 
     return (
