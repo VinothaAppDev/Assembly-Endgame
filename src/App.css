@@ -55,7 +55,7 @@ hgroup p{
     margin: 10px;
 }
 
-.lost::after{
+.langBoxContainer > .lost::after{
     content: "💀";
     position: absolute;
     inset: 0;

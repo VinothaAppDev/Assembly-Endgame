@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import { languages } from './languages'
 import clsx from 'clsx';
+import farewellMsgPicker from './utils';
+import cheerUpMsgPicker from './cheeUpmsgs'
 
 export default function App() {
 
@@ -30,9 +32,9 @@ export default function App() {
     })
 
     const alphabetChosen = (letter) => {
-        setGuessedLetters((prev) => (
-            prev.includes(letter) ? prev : (prev + letter)
-        ))
+        setGuessedLetters((prev) => {
+            return prev.includes(letter) ? prev : (prev + letter)
+        })
     }
 
     const keyboard = Array.from(letters).map(letter => {
@@ -83,11 +85,17 @@ export default function App() {
         // to do
     }
 
-    function statusBarRender() {
-        let content = null;
+    const lastGuess = guessedLetters.at(-1)
+
+    const isWrongGuess = guessedLetters.length>0 && (!currentWord.includes(lastGuess))
+    const isRightGuess = guessedLetters.length>0 && (currentWord.includes(lastGuess))
+
+    function statusBarContentRender() {
+        let statusBarContent = null;
+
         if (isGameOver) {
             if (isGameWon) {
-                content = (
+                statusBarContent = (
                     <>
                         <h3>You Win</h3>
                         <p>Well done! 🎉</p>
@@ -95,7 +103,7 @@ export default function App() {
                 )
             }
             else {
-                content = (
+                statusBarContent = (
                     <>
                         <h3>Game over!</h3>
                         <p>You lose! Better start learning Assembly 😭</p>
@@ -103,12 +111,26 @@ export default function App() {
                 )
             }
         }
-        return content;
+        else if (guessedLetters.length>0) {
+            if(!currentWord.includes(guessedLetters.at(-1))){
+                statusBarContent = (
+                    <p>{farewellMsgPicker(languages[wrongGuessCount - 1].name)}</p>
+                )
+            }
+            else{
+                statusBarContent = (
+                    <p>{cheerUpMsgPicker()}</p>
+                )
+            }
+        }
+
+        // console.log(languages[wrongGuessCount-1])
+        return statusBarContent;
     }
 
     const statusBarSectionClass = clsx("status-bar", {
-        won: isGameWon,
-        lost: isGameLost
+        won: (isGameWon || isRightGuess),
+        lost: (isGameLost || isWrongGuess)
     })
 
     return (
@@ -121,7 +143,7 @@ export default function App() {
                 className={statusBarSectionClass}
             // style={statusBarSectionStyles}
             >
-                {statusBarRender()}
+                {statusBarContentRender()}
             </section>
             <section className="langBoxContainer">
                 {langBoxes}
