@@ -1,0 +1,161 @@
+hgroup{
+    font-style: Medium;
+    text-align: center;
+}
+
+hgroup h3{
+    color: #F9F4DA;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-bottom: 1vh;
+}
+
+hgroup p{
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #8E8E8E;
+}
+
+.status-bar{
+    background-color: transparent;
+    margin: 3vh;
+    text-align: center;
+    height: 10vh;
+    width: 60vw;
+    color: #F9F4DA;
+    border-radius: 10px;
+    font-weight: 500;
+    font-style: Medium;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h3{
+        font-size: 1.3rem;
+    }
+    p{
+        font-size: 1rem;
+    }
+}
+
+.rightGuess{
+    background-color: #4CAF50;
+}
+
+.wrongGuess{
+    background-color: #7A5EA7;
+}
+
+.won{
+    background-color: #10A95B;
+}
+
+.lost{
+    background-color: #BA2A2A;
+}
+
+.langBoxContainer{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50vw;
+    justify-content: center;
+    gap: 2px;
+    margin: 10px;
+}
+
+.langBoxContainer > .lost::after{
+    content: "💀";
+    position: absolute;
+    inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 1rem;
+}
+
+.wordBox{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    margin: 5vh;
+}
+
+span.word-letter{
+    color: #F9F4DA;
+    height: 7vh;
+    width: 7vh;
+    background-color: #323232;
+    border-bottom: 1px solid #F9F4DA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 1.5rem;
+}
+
+span.lettersNotGuessed{
+    color: #EC5D49;   
+}
+
+.key-board{
+    display: flex;
+    justify-content: center;
+    max-width: 45vw;
+    /* min-width: 300px; */
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.alphabet{
+    background-color : #FCBA29;
+    border : 1px solid #D7D7D7;
+    border-radius: 5px;
+    height: 7vh;
+    width: 7vh;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.new-game-btn{
+    background-color: #11B5E5;
+    border: 1px solid #D7D7D7;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    padding: 2vh 5vw;
+    border-radius: 8px;
+    margin-top: 4vh;
+}
+
+.disable{
+    pointer-events: none;
+    opacity: 0.5;
+    /* filter: grayscale(40%); */
+    /* cursor: not-allowed; */
+}
+
+.sr-only{
+    height: 1px;
+    width: 1px;
+    color: transparent;
+    position: absolute;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+    .key-board{
+        min-width: 80vw;
+        /* max-width: 70vw; */
+    }
+}
